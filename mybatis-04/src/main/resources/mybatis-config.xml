@@ -8,8 +8,9 @@
     <!--引入外部配置文件，注意XML内标签有排列顺序-->
     <properties resource="db.properties"/>
 
+    <!--标准的日志工厂实现-->
     <settings>
-        <setting name="logImpl" value="STDOUT_LOGGING"/>
+        <setting name="logImpl" value="LOG4J"/>
     </settings>
 
     <!--给类取别名 默认是小写类名 也可以使用注解DIY-->
