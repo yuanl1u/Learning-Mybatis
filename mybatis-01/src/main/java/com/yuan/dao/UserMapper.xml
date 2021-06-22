@@ -4,15 +4,15 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!--namespace绑定一个接口类-->
-<mapper namespace="com.yuan.dao.UserMapper">
+<mapper namespace="com.UserMapper">
     <!--id 就是 接口中的方法-->
     <!--resultType 返回一个 resultMap 返回多个-->
-    <select id="getUserList" resultType="com.yuan.pojo.User">
+    <select id="getUserList" resultType="com.User">
         select * from mybatis.user
     </select>
 
     <!--同样是检索，注意表明参数的类型-->
-    <select id="getUserById" resultType="com.yuan.pojo.User" parameterType="int">
+    <select id="getUserById" resultType="com.User" parameterType="int">
         select * from mybatis.user where id = #{id}
     </select>
 
@@ -20,21 +20,21 @@
         使用Object传递所有参数
         使用基本类型传递一个参数
     -->
-    <select id="getUserByIdThroughMap" resultType="com.yuan.pojo.User" parameterType="map">
+    <select id="getUserByIdThroughMap" resultType="com.User" parameterType="map">
         /*注意id 和 name 后面的占位符可以与User类属性名字不一样，只要与Map中key一样即可*/
         select * from mybatis.user where id = #{HelloId} and name = #{HelloName}
     </select>
-    <select id="getUserListLike" resultType="com.yuan.pojo.User">
+    <select id="getUserListLike" resultType="com.User">
         /*注意在此处value前后最好写死%而不要要让用户输入时输入%，防止sql注入*/
         select * from mybatis.user where name like "%"#{value}"%";
     </select>
 
     <!--可以直接从User实例取字段-->
-    <insert id="addUser" parameterType="com.yuan.pojo.User">
+    <insert id="addUser" parameterType="com.User">
         insert into mybatis.user (id, name, pwd) values (#{id}, #{name}, #{pwd});
     </insert>
     
-    <update id="updateUser" parameterType="com.yuan.pojo.User">
+    <update id="updateUser" parameterType="com.User">
         update mybatis.user set name = #{name}, pwd = #{pwd} where id = #{id};
     </update>
 

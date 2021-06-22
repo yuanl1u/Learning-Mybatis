@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!--namespace绑定一个接口类-->
-<mapper namespace="com.yuan.dao.UserMapper">
+<mapper namespace="com.UserMapper">
     <!--id 就是 接口中的方法-->
     <!--resultType 返回一个 resultMap 返回多个-->
     <!--使用扫描包时别名注意要小写（最好）-->
