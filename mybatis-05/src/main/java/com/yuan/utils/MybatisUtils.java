@@ -32,7 +32,8 @@ public class MybatisUtils {
     }
 
     public static SqlSession getSqlSession(){
-        return sqlSessionFactory.openSession();
+        // true用来开启自动提交事务（不需要手动commit()了)
+        return sqlSessionFactory.openSession(true);
     }
 
 

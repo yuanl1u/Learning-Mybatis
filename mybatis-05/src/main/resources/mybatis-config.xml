@@ -35,7 +35,10 @@
 
     <!--绑定接口-->
     <mappers>
+        <!--如果使用接口映射 class必须全类名-->
         <mapper class="com.yuan.dao.UserMapper"/>
+        <!--如果使用resources 可以通配（如下方就将所有叫XXXMapper的读取了）-->
+        <mapper resource="com/yuan/dao/*Mapper.xml"/>
     </mappers>
 
 </configuration>

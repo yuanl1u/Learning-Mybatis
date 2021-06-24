@@ -18,11 +18,20 @@ public class UserMapperTest {
         SqlSession sqlSession = MybatisUtils.getSqlSession();
         // 底层主要应用反射
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
-        List<User> users = mapper.getUsers();
+//        List<User> users = mapper.getUsers();
+//
+//        for (User user : users) {
+//            System.out.println("user = " + user);
+//        }
 
-        for (User user : users) {
-            System.out.println("user = " + user);
-        }
+//        User user = mapper.getUserById(1);
+//        System.out.println("user = " + user);
+
+//        mapper.addUser(new User(4, "haha", "123456"));
+
+//        mapper.updateUser(new User(4, "xixi", "123456"));
+
+        mapper.deleteUser(4);
 
 
         sqlSession.close();
