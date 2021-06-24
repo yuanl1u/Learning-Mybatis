@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<!--核心配置文件-->
+<configuration>
+    <!--引入外部配置文件，注意XML内标签有排列顺序-->
+    <properties resource="db.properties"/>
+
+    <!--标准的日志工厂实现-->
+    <settings>
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+
+    <!--给类取别名 默认是小写类名 也可以使用注解DIY-->
+    <typeAliases>
+        <package name="com.yuan.pojo"/>
+    </typeAliases>
+
+    <environments default="development">
+        <!--环境可以分为dev, test, product等等-->
+        <environment id="development">
+            <!--默认事务采用JDBC的事务-->
+            <transactionManager type="JDBC"/>
+            <!--默认使用连接池-->
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!--绑定接口-->
+    <mappers>
+        <mapper class="com.yuan.dao.UserMapper"/>
+    </mappers>
+
+</configuration>
