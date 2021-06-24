@@ -1,62 +1,23 @@
 package com.yuan.pojo;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.apache.ibatis.type.Alias;
 
 /**
  * @author Yuan Liu
  * @create 2021-06-17 11:57 下午
  */
-// 通过Alias注解取DIY的别名
-@Alias("user")
+// Lombok 一个 data注解 实现get\set、无参构造、toString、hashcode、equals等常用法法
+@Data
+// 自动生成有参构造
+@AllArgsConstructor
+// 同时实现有参、无参构造
+@NoArgsConstructor
 public class User {
-
-
 
     private int id;
     private String name;
     private String password;
-
-    public User() {
-
-    }
-
-    public User(int id, String name, String password) {
-        this.id = id;
-        this.name = name;
-        this.password = password;
-    }
-
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", password='" + password + '\'' +
-                '}';
-    }
 }
